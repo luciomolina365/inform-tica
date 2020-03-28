@@ -5,7 +5,8 @@ nuevo = []
 for i in tam:
     name, space, tuplaStr = i.partition(" ")
 
-    arreglo=(int(tuplaStr.split(",")[0]),int(tuplaStr.split(",")[1]))
+    arreglo=(  int(tuplaStr.split(",")[0])  ,  int(tuplaStr.split(",")[1])  )
+    
     print(arreglo)
 
     nuevo.extend([arreglo])
