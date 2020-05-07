@@ -1,5 +1,7 @@
 from pattern.web import Twitter
-from pattern.es import tag
+from pattern.en import tag
+
+#from pattern.text.en import tag
 from pattern.vector import KNN, count
 
 twitter, knn = Twitter(), KNN()
