@@ -6,12 +6,12 @@ import json
 def leerArchivoJugadores():
     dic_jugadores = {}
     # Tarea: Pensar como manejar exceptions aca
-    with open('jugadores1.json', 'r') as archivo:
+    with open('ejer_5_jugadores.json', 'r') as archivo:
         datos = json.load(archivo)
     return datos
 
 def escribirArchivoJugadores(jugadores):
-    with open('jugadores1.json', 'w') as archivo:
+    with open('ejer_5_jugadores.json', 'w') as archivo:
         json.dump(jugadores,archivo)
 
 def cargarJugador(values):
