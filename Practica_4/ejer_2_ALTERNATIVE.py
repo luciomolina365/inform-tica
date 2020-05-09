@@ -1,52 +1,6 @@
 import PySimpleGUI as sg
 import json
 
-#--------------------------------------------------------------------------
-def faltaCompletar(values):
-    if values['_nombre_'] == '' or values['_nivel_'] == '' or values['_puntajemax_'] == '' or values['_tiempo_'] == '':
-        return True
-    else:
-        return False
-
-
-def leerArchivo():
-    # Tarea: Pensar como manejar exceptions aca
-    try:
-        with open('ejer_2_jugadores.json', 'r') as archivo:
-            datos = json.load(archivo)
-        return datos  
-    
-    except FileNotFoundError:
-        with open('ejer_2_jugadores.json', 'w') as archivo:
-            datos={}
-            json.dump(datos, archivo)        
-        return datos
-
-def escribirArchivo(datos):
-    with open('ejer_2_jugadores.json' , 'w') as archivo:
-        json.dump(datos,archivo)
-
-
-def cargarDatos(lista):
-
-    jugadores = leerArchivo()
-    
-    for elemento in lista:
-        jugadores[elemento["nombre"]] = elemento
-    
-    lista.clear()
-
-    escribirArchivo(jugadores)
-#--------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
 
 #==========================================================================
 def modificar(values):
@@ -92,6 +46,51 @@ def modificoDatos():
 #==========================================================================
   
 
+
+
+
+#--------------------------------------------------------------------------
+def faltaCompletar(values):
+    if values['_nombre_'] == '' or values['_nivel_'] == '' or values['_puntajemax_'] == '' or values['_tiempo_'] == '':
+        return True
+    else:
+        return False
+
+
+def leerArchivo():
+    # Tarea: Pensar como manejar exceptions aca
+    try:
+        with open('ejer_2_jugadores.json', 'r') as archivo:
+            datos = json.load(archivo)
+        return datos  
+    
+    except FileNotFoundError:
+        with open('ejer_2_jugadores.json', 'w') as archivo:
+            datos={}
+            json.dump(datos, archivo)        
+        return datos
+
+def escribirArchivo(datos):
+    with open('ejer_2_jugadores.json' , 'w') as archivo:
+        json.dump(datos,archivo)
+
+
+def cargarDatos(lista):
+
+    jugadores = leerArchivo()
+    
+    for elemento in lista:
+        
+        nombre=elemento["nombre"]
+
+        del elemento["nombre"]
+
+        jugadores[nombre] = elemento
+    
+    lista.clear()
+
+    escribirArchivo(jugadores)
+#--------------------------------------------------------------------------
 
 
 
