@@ -1,48 +1,6 @@
 import PySimpleGUI as sg
 import json
 
-#--------------------------------------------------------------------------
-
-def faltaCompletar(values):
-    if values['_nombre_'] == '' or values['_nivel_'] == '' or values['_puntajemax_'] == '' or values['_tiempo_'] == '':
-        return True
-    else:
-        return False
-
-
-def leerArchivo():
-    # Tarea: Pensar como manejar exceptions aca
-    try:
-        with open('ejer_2_jugadores.json', 'r') as archivo:
-            datos = json.load(archivo)
-        return datos  
-    
-    except FileNotFoundError:
-        with open('ejer_2_jugadores.json', 'w') as archivo:
-            datos={}
-            json.dump(datos, archivo)        
-        return datos
-
-def escribirArchivo(datos):
-    with open('ejer_2_jugadores.json' , 'w') as archivo:
-        json.dump(datos,archivo)
-
-
-def cargarDatos(values):
-
-    jugadores = leerArchivo()
-    
-    nombre = str(values['_nombre_']).lower()
-    jugadores[nombre] = {
-        'puntaje': int(values['_puntajemax_']),
-        'nivel': int(values['_nivel_']),
-        'tiempo': int(values['_tiempo_'])
-    }
-
-    escribirArchivo(jugadores)
-#--------------------------------------------------------------------------
-
-
 #==========================================================================
 def modificar(values):
     
@@ -86,6 +44,55 @@ def modificoDatos():
     window.Close()
 #==========================================================================
   
+
+
+
+
+
+
+#--------------------------------------------------------------------------
+
+def faltaCompletar(values):
+    if values['_nombre_'] == '' or values['_nivel_'] == '' or values['_puntajemax_'] == '' or values['_tiempo_'] == '':
+        return True
+    else:
+        return False
+
+
+def leerArchivo():
+    # Tarea: Pensar como manejar exceptions aca
+    try:
+        with open('ejer_2_jugadores.json', 'r') as archivo:
+            datos = json.load(archivo)
+        return datos  
+    
+    except FileNotFoundError:
+        with open('ejer_2_jugadores.json', 'w') as archivo:
+            datos={}
+            json.dump(datos, archivo)        
+        return datos
+
+def escribirArchivo(datos):
+    with open('ejer_2_jugadores.json' , 'w') as archivo:
+        json.dump(datos,archivo)
+
+
+def cargarDatos(values):
+
+    jugadores = leerArchivo()
+    
+    nombre = str(values['_nombre_']).lower()
+    jugadores[nombre] = {
+        'puntaje': int(values['_puntajemax_']),
+        'nivel': int(values['_nivel_']),
+        'tiempo': int(values['_tiempo_'])
+    }
+
+    escribirArchivo(jugadores)
+#--------------------------------------------------------------------------
+
+
+
 
 #PROGRAMA PRINCIPAL
 
