@@ -16,13 +16,13 @@ def leerArchivo():
             json.dump(datos, archivo)        
         return datos
 
-def escribirArchivo(clima):
+def escribirArchivo(datos):
     with open('ejer_1_clima.json' , 'w') as archivo:
-        json.dump(clima,archivo)
+        json.dump(datos,archivo)
 
 
 
-def cargarJugador(lista):
+def cargarDatos(lista):
 
     datos=leerArchivo()
     
@@ -30,6 +30,7 @@ def cargarJugador(lista):
         
         datos[len(datos)+1]= elemento
     
+    lista.clear()
     
     escribirArchivo(datos)
     
@@ -71,7 +72,6 @@ while True:
     
     elif event == "Guardar en json":
         try:
-            cargarJugador(lista)
-            lista = []
+            cargarDatos(lista)
         except NameError:
             sg.Popup('Falta añadir los datos')
