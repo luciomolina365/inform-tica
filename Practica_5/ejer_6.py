@@ -22,8 +22,6 @@ def cargarDatos(values):
 
     datos = leerArchivo()
 
-    print(values)
-
     datos[len(datos)] = values         
 
     escribirArchivo(datos)
