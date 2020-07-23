@@ -23,7 +23,13 @@ while True:
 
 window.Close()
 
-archivo = open(values["_file_"] , "r")
 
-print(archivo.read())
+
+
+
+#archivo = open(values["_file_"] , "r")
+
+#print(archivo.read())
+
+
 
