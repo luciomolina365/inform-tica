@@ -30,17 +30,33 @@ def cargarDatos(values):
 
 
 layout = [
+
+
     
     [sg.Text("Temperatura") , sg.InputText(key="__temperatura__")],
     [sg.Text("Humedad") , sg.InputText(key= "__humedad__")],
-    [sg.Listbox([], size = (90,10) , key = "__listBox__" , select_mode=True)],
     [sg.Button("Añadir", key="__añadir__") , sg.Button("Guardar", key= "__guardar__")],
     [sg.Exit()]
 
 ]
 
+layout2 = [
 
-window = sg.Window("Ejercicio 1" , layout, finalize=True)
+    [sg.Listbox([], size = (90,10) , key = "__listBox__" , select_mode=True)]
+
+]
+
+
+
+
+
+columna1 = sg.Column(layout)
+
+columna2 = sg.Column(layout2)
+
+finalas = [columna1 , columna2]
+
+window = sg.Window("Ejercicio 1" , finalas , finalize=True)
 
 
 
